@@ -8634,7 +8634,7 @@
     }
   };
 
-  // rails:F:\do-thuy-trang-20070791-movie-website-management-submission\app\javascript\controllers\**\*_controller.js
+  // rails:F:\do-thuy-trang-20070791-movie-website-management-final-submission\app\javascript\controllers\**\*_controller.js
   var modules = [{ name: "hello", module: hello_controller_exports, filename: "hello_controller.js" }];
   var controller_default = modules;
 
