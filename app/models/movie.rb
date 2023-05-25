@@ -11,4 +11,5 @@ class Movie < ApplicationRecord
     validates :title, length: { maximum: 100 }
     validates :duration, numericality: { only_integer: true, greater_than: 0 }
     validates_numericality_of :year
+    validates_uniqueness_of :title
 end
