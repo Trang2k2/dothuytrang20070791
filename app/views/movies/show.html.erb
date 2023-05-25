@@ -1,0 +1,22 @@
+<div class="page-header">
+  <%= link_to movies_path, class: 'btn btn-default' do %>
+    All Movies
+  <% end %>
+  <%= link_to edit_movie_path(@movie), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show movie</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @movie.title %></dd>
+  <dt>Year:</dt>
+  <dd><%= @movie.year %></dd>
+  <dt>Duration:</dt>
+  <dd><%= @movie.duration %></dd>
+  <dt>Description:</dt>
+  <dd><%= @movie.description %></dd>
+  <dt>Release date:</dt>
+  <dd><%= @movie.release_date %></dd>
+</dl>

@@ -4,16 +4,36 @@
     <%= render 'shared/head' %>
   </head>
 
-  <body class="d-flex flex-column h-100">
-    <main class="flex-shrink-0"> 
-      <%= render 'shared/navbar' %>
-      <%= render 'shared/notices' %>
+  <style>
+  .section-below-nav {
+  margin: 0;
+  padding: 80px;
+  
+  width:100%;
+  min-height: 100vh; /* Sử dụng min-height thay vì height để đảm bảo chiều cao tối thiểu bằng chiều cao màn hình */
+  background-image: url('/assets/Back.png'); /* Ảnh nền mới */
+  background-size: cover; /* Đảm bảo ảnh nền được điều chỉnh phù hợp */
+}
 
-      <div class="container mt-4 mx-auto">
-        <%= yield %>
-      </div>
-    </main>
+.table-responsive {
+  background-color: transparent; /* Loại bỏ màu nền của table-responsive */
+  margin: 0; /* Loại bỏ margin */
+}
 
-    <%= render 'shared/footer' %>
-  </body>
+</style>
+
+<body class="d-flex flex-column h-100">
+  <main class="flex-shrink-0"> 
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/notices' %>
+
+    <div class="container mt-4 mx-auto section-below-nav">
+      <%= yield %>
+    </div>
+  </main>
+
+  <%= render 'shared/footer' %>
+</body>
+
 </html>
+

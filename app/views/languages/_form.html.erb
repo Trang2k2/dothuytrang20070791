@@ -1,0 +1,39 @@
+<%= form_with(model: language) do |form| %>
+  <% if language.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(language.errors.count, "error") %> prohibited this language from being saved:</h2>
+
+      <ul>
+      <% language.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :movie_id, class: 'form-label' %>
+    <%= form.select :movie_id, options_from_collection_for_select(Movie.all, 'id', 'title', selected: language.movie_id), class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <% if language.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', language, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if language.persisted? %>
+      <%= link_to "Cancel", language, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", languages_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

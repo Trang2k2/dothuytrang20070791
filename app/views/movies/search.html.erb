@@ -1,0 +1,11 @@
+<h1>Search Results</h1>
+
+<% if @movies.any? %>
+  <ul>
+    <% @movies.each do |movie| %>
+      <li><%= movie.title %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No results found.</p>
+<% end %>

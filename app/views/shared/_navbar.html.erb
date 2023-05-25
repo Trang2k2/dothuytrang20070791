@@ -7,17 +7,36 @@
 
 <nav class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container mx-auto">
-    <%= link_to Rails.configuration.application_name, root_path, class: "navbar-brand" %>
+    <%= link_to "Movie Website Management", root_path, class: "navbar-brand" %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav me-auto mt-2 mt-md-0">
+    <div class="collapse navbar-collapse" id="navbarMain"> 
+     
       </ul>
 
-      <ul class="navbar-nav">
+      <ul class="navbar-nav ms-auto">  
+      <li class="nav-item table-item">
+      <a class="nav-link" href="movies">Menu</a>
+      <ul class="submenu">
+        <li class="nav-item"><%= link_to "Actor", actors_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Movie_actor", movie_actors_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Director", directors_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Movie_director", movie_directors_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Detail", details_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Genre", genres_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Movie_genre", movie_genres_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Movie", movies_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Language", languages_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Rating", ratings_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Review", reviews_path, class: "nav-link" %></li>
+        
+        
+        
+        <!-- Thêm các subitem khác tại đây -->
+      </ul>
         <li class="nav-item"><%= link_to "What's New", announcements_path, class: "nav-link #{unread_announcements(current_user)}" %></li>
         <% if user_signed_in? %>
 
@@ -43,10 +62,76 @@
           </li>
 
         <% else %>
+        <ul class="navbar-nav me-auto mt-2 mt-md-0">
+       
+
           <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
+          
+          </li>
+          
         <% end %>
       </ul>
     </div>
   </div>
 </nav>
+<style>
+
+.table-item:hover .submenu {
+  display: block;
+}
+.submenu {
+  display: none;
+  position: absolute;
+  min-width: 200px;
+  background-color: #f8f9fa; /* Đổi màu submenu */
+  background-image: url(<%= asset_path('submenu1.png') %>);
+  background-size: cover; /* Kích thước ảnh vừa với kích thước của submenu */
+  background-position: center; /* Căn giữa ảnh trong submenu */
+  padding: 10px
+}
+
+
+
+.table-item:hover .submenu {
+  display: block;
+}
+
+.navbar {
+    position:relative;
+    background-image: url(<%= asset_path('film.png') %>);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height:100px;
+    padding-left:15px;
+    padding-right:15px;
+
+}
+
+
+.navbar-nav {
+  position: relative;
+}
+.navbar-nav .submenu {
+  list-style-type: none; /* Loại bỏ dấu "." */
+}
+
+.navbar-nav .submenu li a {
+  color: black;
+}
+
+.navbar-nav > .nav-item:not(:hover) {
+  position: relative;
+  z-index: 1;
+}
+
+.submenu {
+  position: absolute;
+  z-index: 2;
+}
+
+
+
+
+</style>

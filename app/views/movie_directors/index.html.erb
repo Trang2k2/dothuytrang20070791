@@ -1,0 +1,45 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Movie_directors</h1>
+  </div>
+
+  <div class="col-sm-6 text-end">
+  <%= link_to new_movie_director_path, class: 'btn btn-primary' do %>
+    Add New Movie director
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Movie</th>
+            <th>Director</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @movie_directors.each do |movie_director| %>
+        <%= content_tag :tr, id: dom_id(movie_director), class: dom_class(movie_director) do %>
+          
+
+                      <td><%= movie_director.movie.title %></td>
+                      <td><%= movie_director.director.name %></td>
+          
+          
+            <td><%= link_to 'Show', movie_director %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

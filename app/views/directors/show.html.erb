@@ -1,0 +1,14 @@
+<div class="page-header">
+  <%= link_to directors_path, class: 'btn btn-default' do %>
+    All Directors
+  <% end %>
+  <%= link_to edit_director_path(@director), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show director</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @director.name %></dd>
+</dl>

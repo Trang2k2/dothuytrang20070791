@@ -1,0 +1,39 @@
+<%= form_with(model: movie_actor) do |form| %>
+  <% if movie_actor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie_actor.errors.count, "error") %> prohibited this movie_actor from being saved:</h2>
+
+      <ul>
+      <% movie_actor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :movie_id, class: 'form-label' %>
+    <%= form.select :movie_id, options_from_collection_for_select(Movie.all, 'id', 'title', selected: movie_actor.movie_id), class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :actor_id, class: 'form-label' %>
+    <%= form.select :actor_id, options_from_collection_for_select(Actor.all, 'id', 'name', selected: movie_actor.actor_id), class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <% if movie_actor.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', movie_actor, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if movie_actor.persisted? %>
+      <%= link_to "Cancel", movie_actor, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", movie_actors_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

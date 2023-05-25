@@ -1,0 +1,14 @@
+<div class="page-header">
+  <%= link_to genres_path, class: 'btn btn-default' do %>
+    All Genres
+  <% end %>
+  <%= link_to edit_genre_path(@genre), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show genre</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @genre.name %></dd>
+</dl>

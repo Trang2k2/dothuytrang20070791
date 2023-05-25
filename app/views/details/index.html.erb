@@ -1,0 +1,49 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Details</h1>
+  </div>
+
+  <div class="col-sm-6 text-end">
+  <%= link_to new_detail_path, class: 'btn btn-primary' do %>
+    Add New Detail
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Poster</th>
+            <th>Trailers</th>
+            <th>Video</th>
+            <th>Movie</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @details.each do |detail| %>
+        <%= content_tag :tr, id: dom_id(detail), class: dom_class(detail) do %>
+          
+
+                      <td><%= detail.poster %></td>
+                      <td><%= detail.trailers %></td>
+                      <td><%= detail.video %></td>
+                      <td><%= detail.movie.title %></td>
+          
+          
+            <td><%= link_to 'Show', detail %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

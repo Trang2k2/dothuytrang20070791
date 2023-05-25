@@ -1,0 +1,16 @@
+<div class="page-header">
+  <%= link_to movie_genres_path, class: 'btn btn-default' do %>
+    All Movie_genres
+  <% end %>
+  <%= link_to edit_movie_genre_path(@movie_genre), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show movie_genre</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Movie:</dt>
+  <dd><%= @movie_genre.movie.title %></dd>
+  <dt>Genre:</dt>
+  <dd><%= @movie_genre.genre.name %></dd>
+</dl>

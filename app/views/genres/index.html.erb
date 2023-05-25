@@ -1,0 +1,41 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Genres</h1>
+  </div>
+
+  <div class="col-sm-6 text-end">
+  <%= link_to new_genre_path, class: 'btn btn-primary' do %>
+    Add New Genre
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+        <th>Name</th>
+    
+
+            
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @genres.each do |genre| %>
+        <%= content_tag :tr, id: dom_id(genre), class: dom_class(genre) do %>
+          
+            <td><%= link_to genre.movie.name, genre %></td>
+          
+
+          
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

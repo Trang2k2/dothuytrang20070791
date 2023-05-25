@@ -1,0 +1,49 @@
+<%= form_with(model: detail) do |form| %>
+  <% if detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
+
+      <ul>
+      <% detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :poster, class: 'form-label' %>
+      <%= form.file_field :poster, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :trailers, class: 'form-label' %>
+      <%= form.file_field :trailers, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :video, class: 'form-label' %>
+      <%= form.file_field :video, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :movie_id, class: 'form-label' %>
+    <%= form.select :movie_id, options_from_collection_for_select(Movie.all, 'id', 'title', selected: detail.movie_id), class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <% if detail.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', detail, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if detail.persisted? %>
+      <%= link_to "Cancel", detail, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", details_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to details_path, class: 'btn btn-default' do %>
+    All Details
+  <% end %>
+  <%= link_to edit_detail_path(@detail), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show detail</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Poster:</dt>
+  <dd><%= @detail.poster %></dd>
+  <dt>Trailers:</dt>
+  <dd><%= @detail.trailers %></dd>
+  <dt>Video:</dt>
+  <dd><%= @detail.video %></dd>
+  <dt>Movie:</dt>
+  <dd><%= @detail.movie.title %></dd>
+</dl>

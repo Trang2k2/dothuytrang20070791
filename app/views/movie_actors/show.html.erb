@@ -1,0 +1,16 @@
+<div class="page-header">
+  <%= link_to movie_actors_path, class: 'btn btn-default' do %>
+    All Movie_actors
+  <% end %>
+  <%= link_to edit_movie_actor_path(@movie_actor), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show movie_actor</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Movie:</dt>
+  <dd><%= @movie_actor.movie.title %></dd>
+  <dt>Actor:</dt>
+  <dd><%= @movie_actor.actor.name %></dd>
+</dl>

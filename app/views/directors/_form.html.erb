@@ -1,0 +1,34 @@
+<%= form_with(model: director) do |form| %>
+  <% if director.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(director.errors.count, "error") %> prohibited this director from being saved:</h2>
+
+      <ul>
+      <% director.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <% if director.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', director, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if director.persisted? %>
+      <%= link_to "Cancel", director, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", directors_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

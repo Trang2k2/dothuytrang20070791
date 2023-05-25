@@ -1,0 +1,2 @@
+module MovieGenresHelper
+end
