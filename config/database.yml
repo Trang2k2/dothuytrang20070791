@@ -23,3 +23,15 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+ 
+production:
+  <<: *default
+  database: db/production.sqlite3
+  url: <%= ENV["DATABASE_URL"] %>
+  adapter: postgresql
+  encoding: unicode
+  username: <%= ENV["PGUSER"] %>
+  password: <%= ENV["PGPASSWORD"] %>
+  host: localhost
+  port: 5432
+
