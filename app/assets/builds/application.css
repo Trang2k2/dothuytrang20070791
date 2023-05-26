@@ -85,10 +85,43 @@
     scroll-behavior: smooth;
   }
 }
-form{
-  text-align: right;
+#search-form {
   padding-bottom: 10px;
+  text-align: right;
+  
 }
+
+#search-form input[type="text"]:hover {
+  /* Định dạng CSS cho chữ "Search" khi di chuột vào */
+  color: red; /* Ví dụ: Đổi màu chữ thành màu đỏ */
+}
+#search-form input[type="text"]{
+  height:40px;
+  width:33.3%;
+  border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+  
+  
+}
+#search-form input[type="submit"]{
+  padding-right:5px;
+  border-radius: 5px;
+  width:140px;
+  height:40px;
+  border:none;
+  background-color:#0D6EF6;
+  color:white;
+  border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+}
+
+#search-form input[type="submit"]:hover {
+  /* Định dạng CSS cho nút "Search" khi di chuột vào */
+  background-color:#0D6EF7;
+  color: white; /* Ví dụ: Đổi màu chữ thành màu trắng */
+  border:none;
+
+}
+
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -1736,7 +1769,7 @@ progress {
 .table {
   --bs-table-color: var(--bs-body-color);
   --bs-table-bg: transparent;
-  --bs-table-border-color: var(--bs-border-color);
+  --bs-table-border-color: black;
   --bs-table-accent-bg: transparent;
   --bs-table-striped-color: var(--bs-body-color);
   --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
@@ -1748,7 +1781,7 @@ progress {
   margin-bottom: 1rem;
   color: var(--bs-table-color);
   vertical-align: top;
-  border-color: var(--bs-table-border-color);
+  border-color: black;
 }
 .table > :not(caption) > * > * {
   padding: 0.5rem 0.5rem;

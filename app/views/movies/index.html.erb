@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<%= form_tag(movies_path, method: :get) do %>
+<%= form_tag(movies_path, method: :get, id: "search-form") do %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Search" %>
 <% end %>
@@ -45,10 +45,3 @@
 <% else %>
   <p>No results found.</p>
 <% end %>
-<style>{
-  form {
-  padding-bottom: 10px;
-  text-align: right;
-}
-}
-</style>
