@@ -7,6 +7,10 @@
 
 <nav class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container mx-auto">
+  <a href="/" class="logo-link">
+  <%= image_tag("logorub.png", alt: "Logo", height: 80, class: "logo-image") %>
+</a>
+
     <%= link_to "Movie Website Management", root_path, class: "navbar-brand" %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -130,6 +134,7 @@
   position: absolute;
   z-index: 2;
 }
+
 
 
 

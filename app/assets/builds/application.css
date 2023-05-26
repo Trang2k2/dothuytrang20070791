@@ -102,6 +102,7 @@
   
   
 }
+
 #search-form input[type="submit"]{
   padding-right:5px;
   border-radius: 5px;
@@ -121,6 +122,24 @@
 
 }
 
+.logo-link {
+  display: inline-block;
+  margin:2px;
+  padding-right: 10px;
+  height:85%;
+}
+
+.logo-link:hover {
+  cursor: pointer;
+}
+
+.logo-image {
+  transition: transform 0.3s;
+}
+
+.logo-link:hover .logo-image {
+  transform: scale(1.1);
+}
 
 body {
   margin: 0;
