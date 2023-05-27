@@ -2,5 +2,5 @@ class Review < ApplicationRecord
   belongs_to :movie
 
   validates_numericality_of :rating
-  validates_presence_of :year
+  validates_presence_of :content
 end

@@ -8,6 +8,8 @@
   <h1>Show movie</h1>
 </div>
 
+
+
 <dl class="dl-horizontal">
   <dt>Title:</dt>
   <dd><%= @movie.title %></dd>
@@ -20,3 +22,107 @@
   <dt>Release date:</dt>
   <dd><%= @movie.release_date %></dd>
 </dl>
+
+<!-- app/views/movies/show.html.erb -->
+
+
+<h1><%= @movie.title %></h1>
+
+<h3><%= link_to "Actors", "#actors", class: "show-link", data: { target: "actors-list" } %></h3>
+<table id="actors-list" class="hidden">
+  <% @movie.actors.each do |actor| %>
+    <tr>
+      <td><%= actor.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3><%= link_to "Directors", "#directors", class: "show-link", data: { target: "directors-list" } %></h3>
+<table id="directors-list" class="hidden">
+  <% @movie.directors.each do |director| %>
+    <tr>
+      <td><%= director.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h3><%= link_to "Genres", "#genres", class: "show-link", data: { target: "genres-list" } %></h3>
+<ul id="genres-list" class="hidden">
+  <% @movie.genres.each do |genre| %>
+    <li><%= genre.name %></li>
+  <% end %>
+</ul>
+
+<h3><%= link_to "Movie Details", "#details", class: "show-link", data: { target: "details-list" } %></h3>
+<ul id="details-list" class="hidden">
+  <% if @movie.detail %>
+    <li><strong>Title:</strong> <%= @movie.detail.title %></li>
+    <li><strong>Description:</strong> <%= @movie.detail.description %></li>
+    <!-- Các thuộc tính khác của chi tiết phim -->
+  <% else %>
+    <li>No details available.</li>
+  <% end %>
+</ul>
+
+<h3><%= link_to "Languages", "#languages", class: "show-link", data: { target: "languages-list" } %></h3>
+<ul id="languages-list" class="hidden">
+  <% @movie.languages.each do |language| %>
+    <li><%= language.name %></li>
+  <% end %>
+</ul>
+
+<h3><%= link_to "Ratings", "#ratings", class: "show-link", data: { target: "ratings-list" } %></h3>
+<ul id="ratings-list" class="hidden">
+  <% @movie.ratings.each do |rating| %>
+    <li><%= rating.value %></li>
+  <% end %>
+</ul>
+
+<h3><%= link_to "Reviews", "#reviews", class: "show-link", data: { target: "reviews-list" } %></h3>
+<ul id="reviews-list" class="hidden">
+  <% @movie.reviews.each do |review| %>
+    <li><%= review.content %></li>
+  <% end %>
+</ul>
+
+<style>
+  h3 {
+    font-size: smaller;
+    margin-bottom: 0.5em;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var showLinks = document.querySelectorAll(".show-link");
+    
+    showLinks.forEach(function(showLink) {
+      showLink.addEventListener("click", function(e) {
+        e.preventDefault();
+        var target = this.dataset.target;
+        var targetTable = document.querySelector("#" + target);
+        
+        // Ẩn tất cả các bảng
+        var tables = document.querySelectorAll("table");
+        tables.forEach(function(table) {
+          table.classList.add("hidden");
+        });
+        
+        // Hiển thị bảng tương ứng
+        targetTable.classList.remove("hidden");
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+

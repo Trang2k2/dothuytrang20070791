@@ -1,5 +1,4 @@
 class Language < ApplicationRecord
-  has_many :movies
-
+  belongs_to :movie
   validates_presence_of :name
 end

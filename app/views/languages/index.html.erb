@@ -27,17 +27,14 @@
     </thead>
 
     <tbody>
-      <% @languages.each do |language| %>
-        <%= content_tag :tr, id: dom_id(language), class: dom_class(language) do %>
-          
-            <td><%= link_to language.name, language %></td>
-          
-
-                      <td><%= language.movie.title %></td>
-          
-          
-        <% end %>
-      <% end %>
+    <% @languages.each do |language| %>
+      <tr>
+        <td><%= language.name %></td>
+        <td><%= Movie.find(language.movie_id).title %></td>
+      </tr>
+    <% end %>
+    
+    
     </tbody>
   </table>
 </div>

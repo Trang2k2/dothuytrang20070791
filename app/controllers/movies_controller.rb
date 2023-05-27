@@ -27,7 +27,15 @@ class MoviesController < ApplicationController
       @movies = Movie.all
     end
   end
+  # app/controllers/movies_controller.rb
   
+  def show
+    @movie = Movie.find(params[:id])
+    @actors = @movie.actors
+  end
+  
+  
+
   
   # POST /movies or /movies.json
   def create
